@@ -27,16 +27,16 @@ export const syncUserCreation = inngest.createFunction(
 // Inngest Function to log event data
 export const syncUserUpdation = inngest.createFunction(
     {
-        id:`log-event-data`
+        id:`clerk-user-updation`
     },
-    { event: 'clerk/user.created' },
+    { event: 'clerk/user.updated' },
     async ({event}) => {
-        const {id,first_name, last_neme, email_addresses, imag_url} = event.data;
+        const { id, first_name, last_neme, email_addresses, imag_url } = event.data;
         const userData = {
             _id: id,
             email: email_addresses[0].email_address,
             name: first_name + ' ' + last_neme,
-            imageUrl: imag_url
+            imageUrl: image_url
         }
         await connectDB();
         await User.findByIdAndUpdate(id, userData)
