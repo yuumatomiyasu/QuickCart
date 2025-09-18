@@ -6,7 +6,7 @@ import User from "@/models/User";
 export const inngest = new Inngest({ id: "web-demo" });
 
 // Inngest Function to save user data to adateabase 
-export const saveUserCreation = inngest.createFunction(
+export const syncUserCreation = inngest.createFunction(
     {
         id:`sync-user-from-clerk`
     },
