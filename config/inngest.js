@@ -39,7 +39,7 @@ export const syncUserData = inngest.createFunction(
             imageUrl: imag_url
         }
         await connectDB();
-        await User.findByIdAndUpdate(id, userData, {upsert: true});
+        await User.findByIdAndUpdate(id, userData)
     }
 )
 
