@@ -6,7 +6,7 @@ import User from "@/models/User";
 export const inngest = new Inngest({ id: "web-demo" });
 
 // Inngest Function to save user data to adateabase 
-export const saveUserData = inngest.createFunction(
+export const saveUserCreation = inngest.createFunction(
     {
         id:`sync-user-from-clerk`
     },
@@ -20,12 +20,12 @@ export const saveUserData = inngest.createFunction(
             imageUrl: imag_url
         }
         await connectDB();
-        await User.create(userData);
+        await User.create(userData)
     }
 )
 
 // Inngest Function to log event data
-export const syncUserData = inngest.createFunction(
+export const syncUserUpdation = inngest.createFunction(
     {
         id:`log-event-data`
     },
@@ -44,7 +44,7 @@ export const syncUserData = inngest.createFunction(
 )
 
 // Inngest Function to delete user data from database
-export const deleteUserData = inngest.createFunction(
+export const deleteUserDeletion = inngest.createFunction(
     {
         id:`delete-user-with-clerk`
     },
